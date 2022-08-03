@@ -4,7 +4,6 @@ namespace Exercise1
 {
     class Program
     {
-        //TODO: Write a C# program to sort a numeric array and a string array.
         private static void Main(string[] args)
         {
             int[] myArray1 = 
