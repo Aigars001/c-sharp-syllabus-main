@@ -6,7 +6,10 @@ namespace Exercise9
     {
         static void Main(string[] args)
         {
-            var arrayOfWords = new string[] { "samuel", "MABELLE", "letitia", "Meridith" };
+            Console.WriteLine("Enter some words separated with spaces!");
+            var userInput = Console.ReadLine();
+            string[] arrayOfWords = userInput.Trim().Split(" ");
+
             var arrayOfWordsLowerCase = arrayOfWords.Select(s => s.ToLowerInvariant()).ToArray();
             var firstCharUpper = "";
             var firstCharUpperArray = new string[arrayOfWordsLowerCase.Length];
@@ -20,7 +23,7 @@ namespace Exercise9
             
             firstCharUpperArray = firstCharUpper.Split(" ");
 
-            Console.WriteLine(String.Join(" ", arrayOfWords));
+            
             Console.WriteLine(String.Join(" ", firstCharUpperArray));
             Console.ReadKey();
         }
