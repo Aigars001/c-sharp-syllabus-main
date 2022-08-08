@@ -19,9 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise6", "Exercise6\Exer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HangMan", "HangMan\HangMan.csproj", "{9E5823BE-CE2C-445C-ACAE-291BAC91EE56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise9", "Exercise9\Exercise9.csproj", "{1AA8B6E8-66F1-4D6D-A341-B0BC7C087F71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise9", "Exercise9\Exercise9.csproj", "{1AA8B6E8-66F1-4D6D-A341-B0BC7C087F71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise10", "Exercise10\Exercise10.csproj", "{80028A9D-5B90-40E3-99FC-504E5B074DEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise10", "Exercise10\Exercise10.csproj", "{80028A9D-5B90-40E3-99FC-504E5B074DEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindingNemo", "FindingNemo\FindingNemo.csproj", "{4D9C19EB-57A8-4493-9B80-623A4F889D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{80028A9D-5B90-40E3-99FC-504E5B074DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80028A9D-5B90-40E3-99FC-504E5B074DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80028A9D-5B90-40E3-99FC-504E5B074DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9C19EB-57A8-4493-9B80-623A4F889D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9C19EB-57A8-4493-9B80-623A4F889D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9C19EB-57A8-4493-9B80-623A4F889D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9C19EB-57A8-4493-9B80-623A4F889D5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

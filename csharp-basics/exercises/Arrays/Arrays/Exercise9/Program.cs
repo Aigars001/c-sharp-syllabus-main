@@ -23,7 +23,6 @@ namespace Exercise9
             
             firstCharUpperArray = firstCharUpper.Split(" ");
 
-            
             Console.WriteLine(String.Join(" ", firstCharUpperArray));
             Console.ReadKey();
         }
