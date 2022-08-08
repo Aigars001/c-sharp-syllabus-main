@@ -1,40 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculateArea
 {
     class Program
     {
         static void Main(string[] args)
+        { 
+            Play();
+        }
+
+        public static void Play()
         {
             int choice = GetMenu();
 
-           if (choice == 1)
-           {
-               CalculateCircleArea();
-           }
-           else if (choice == 2)
-           {
-               CalculateRectangleArea();
-           }
-           else if (choice == 3)
-           {
-               CalculateTriangleArea();
-           }
-           else if (choice == 4)
-           {
-               Console.WriteLine("Thanks");
-               Console.ReadKey();
-           }
+            if (choice == 1)
+            {
+                CalculateCircleArea();
+            }
+            else if (choice == 2)
+            {
+                CalculateRectangleArea();
+            }
+            else if (choice == 3)
+            {
+                CalculateTriangleArea();
+            }
+            else if (choice == 4)
+            {
+                Console.WriteLine("Thanks");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Enter valid number");
+                Console.ReadKey();
+                Console.Clear();
+                Play();
+            }
         }
 
         public static int GetMenu()
         {
-
             Console.WriteLine("Geometry Calculator\n");
             Console.WriteLine("1. Calculate the Area of a Circle");
             Console.WriteLine("2. Calculate the Area of a Rectangle");
@@ -43,11 +49,11 @@ namespace CalculateArea
             Console.WriteLine("Enter your choice (1-4) : ");
             int userChoice = Convert.ToInt32(Console.ReadLine());
  
-            if (userChoice > 4 || userChoice < 1)
+           /* if (userChoice > 4 || userChoice < 1)
             {
                 Console.WriteLine("Enter valid number");
                 userChoice = Convert.ToInt32(Console.ReadLine());
-            }
+            }*/
 
             return userChoice;
         }

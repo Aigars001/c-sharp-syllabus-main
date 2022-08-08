@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.Design;
-
-namespace Exercise5
+﻿namespace Exercise5
 {
     internal class Program
     {
@@ -29,8 +26,12 @@ namespace Exercise5
             {
                 Console.WriteLine("You guessed it! What are the odds?!?");
             }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
             Console.ReadKey();
-          
         }
     }
 }

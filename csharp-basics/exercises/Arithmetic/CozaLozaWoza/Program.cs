@@ -6,11 +6,10 @@ namespace CozaLozaWoza
     {
         static void Main(string[] args)
         {
-            int maxVal = 110;
             string lineOftext = "";
             int countOfNumbers = 0;
 
-            for (int i = 1; i <= maxVal; i++)
+            for (int i = 1; i <= 110; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0)
                 {

@@ -6,8 +6,7 @@ namespace Exercise1
     {
         static void Main(string[] args)
         {
-
-            if (Is15() == true)
+            if (Is15())
             {
                 Console.WriteLine(true);
             }
@@ -16,8 +15,6 @@ namespace Exercise1
                 Console.WriteLine(false);
             }
             Console.ReadKey();
-
-
         }
         static bool Is15()
         {
@@ -26,18 +23,10 @@ namespace Exercise1
             Console.WriteLine("Enter second number: ");
             int number2 = Convert.ToInt32(Console.ReadLine());
 
-            if (number1 == 15 || number2 == 15 ||
-                number1 + number2 == 15 ||
-                number1 - number2 == 15 ||
-                number2 - number1 == 15)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
- 
+            return number1 == 15 || number2 == 15 ||
+                   number1 + number2 == 15 ||
+                   number1 - number2 == 15 ||
+                   number2 - number1 == 15;
         }
     }
 }
