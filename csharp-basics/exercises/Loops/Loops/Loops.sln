@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise3", "Exercise3\Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise5", "Wxercise5\Exercise5.csproj", "{A70339EB-E01F-4DD4-9312-EA588CB0DE2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FizzBuzz", "FizzBuzz\FizzBuzz.csproj", "{A7D89ED2-B7B3-4D34-945C-6F0A4DD3C8D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A70339EB-E01F-4DD4-9312-EA588CB0DE2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A70339EB-E01F-4DD4-9312-EA588CB0DE2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A70339EB-E01F-4DD4-9312-EA588CB0DE2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D89ED2-B7B3-4D34-945C-6F0A4DD3C8D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D89ED2-B7B3-4D34-945C-6F0A4DD3C8D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D89ED2-B7B3-4D34-945C-6F0A4DD3C8D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D89ED2-B7B3-4D34-945C-6F0A4DD3C8D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
