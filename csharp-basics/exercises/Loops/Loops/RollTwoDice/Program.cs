@@ -20,14 +20,14 @@
                 }
                 else
                 {
-                     while (sumOfRandomNumbers != intValUserInput)
-                     {
-                         int num1 = rnd.Next(1,7);
-                         int num2 = rnd.Next(1,7);
-                         sumOfRandomNumbers = num1 + num2;
+                    while (sumOfRandomNumbers != intValUserInput)
+                    {
+                        int num1 = rnd.Next(1,7);
+                        int num2 = rnd.Next(1,7);
+                        sumOfRandomNumbers = num1 + num2;
 
-                         Console.WriteLine($"{num1} + {num2} = {sumOfRandomNumbers}");
-                     }
+                        Console.WriteLine($"{num1} + {num2} = {sumOfRandomNumbers}");
+                    }
                 }
             }
             else
