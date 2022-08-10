@@ -37,7 +37,7 @@ namespace Piglet
                 if (userInput == 'y')
                 {
                     Console.Clear();
-                    var randomNumber = Rnd.Next(1, 6);
+                    var randomNumber = Rnd.Next(1, 7);
 
                     if (randomNumber == 1)
                     {
