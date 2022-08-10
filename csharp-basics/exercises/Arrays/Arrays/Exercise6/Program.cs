@@ -18,27 +18,24 @@ namespace Exercise6
             }
 
             Array.Copy(array1, array2, array1.Length);
-
             array1[array1.Length - 1] = -7;
-
             Console.Write("Array 1: ");
 
             foreach (var num in array1)
             {
                 Console.Write(num + " ");
             }
-            Console.WriteLine();
 
+            Console.WriteLine();
             Console.Write("Array 2: ");
 
             foreach (var num in array2)
             {
                 Console.Write(num + " ");
             }
+
             Console.WriteLine();
-
             Console.ReadKey();
-
         }
     }
 }
