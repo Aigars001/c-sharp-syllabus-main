@@ -8,7 +8,6 @@ namespace Exercise4
 {
     class Program
     {
-        
         private static void Main(string[] args)
         {
             int[] myArray =
@@ -26,9 +25,8 @@ namespace Exercise4
             {
                 Console.WriteLine("Does not contain!");
             }
-            Console.ReadKey();
-            
 
+            Console.ReadKey();
         }
     }
 }
