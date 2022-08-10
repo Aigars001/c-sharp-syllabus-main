@@ -6,58 +6,49 @@ namespace CozaLozaWoza
     {
         static void Main(string[] args)
         {
-            string lineOftext = "";
-            int countOfNumbers = 0;
+            var lineOfText = "";
 
             for (int i = 1; i <= 110; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0)
                 {
-                    lineOftext += "CozaLozaWoza ";
-                    countOfNumbers++;
+                    lineOfText += "CozaLozaWoza ";
                 }
                 else if (i % 3 == 0 && i % 5 == 0)
                 {
-                    lineOftext += "CozaLoza ";
-                    countOfNumbers++;
+                    lineOfText += "CozaLoza ";
                 }
                 else if (i % 5 == 0 && i % 7 == 0)
                 {
-                    lineOftext += "LozaWoza ";
-                    countOfNumbers++;
+                    lineOfText += "LozaWoza ";
                 }
                 else if (i % 3 == 0 && i % 7 == 0)
                 {
-                    lineOftext += "CozaWoza ";
-                    countOfNumbers++;
+                    lineOfText += "CozaWoza ";
                 }
                 else if (i % 3 == 0)
                 {
-                    lineOftext += "Coza ";
-                    countOfNumbers++;
+                    lineOfText += "Coza ";
                 }
                 else if (i % 5 == 0)
                 {
-                    lineOftext += "Loza ";
-                    countOfNumbers++;
+                    lineOfText += "Loza ";
                 }
                 else if (i % 7 == 0)
                 {
-                    lineOftext += "Woza ";
-                    countOfNumbers++;
+                    lineOfText += "Woza ";
                 }
                 else
                 {
-                    lineOftext += i + " ";
-                    countOfNumbers++;
+                    lineOfText += i + " ";
                 }
 
-                if (countOfNumbers % 11 == 0)
+                if (i % 11 == 0)
                 {
-                    lineOftext += "\n";
+                    lineOfText += "\n";
                 }
             }
-            Console.WriteLine(lineOftext);
+            Console.WriteLine(lineOfText);
             Console.ReadKey();
         }
     }
