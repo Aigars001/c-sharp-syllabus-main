@@ -6,28 +6,32 @@ namespace MoreVariablesAndPrinting
     {
         static void Main(string[] args)
         {
-            string myName, myEyes, myTeeth, myHair;
-            int myAge, myHeight, myWeight;
+            String name, eyes, teeth, hair;
+            int age, heightInch, weightLB;
 
-            myName = "Zed A. Shaw";
-            myAge = 35;
-            myHeight = 74;  // inches
-            myWeight = 180; // lbs
-            myEyes = "Blue";
-            myTeeth = "White";
-            myHair = "Brown";
+            name = "Zed A. Shaw";
+            age = 35;
+            heightInch = 74;
+            weightLB = 180;
+            eyes = "Blue";
+            teeth = "White";
+            hair = "Brown";
 
-            Console.WriteLine("Let's talk about " + myName + ".");
-            Console.WriteLine("He's " + myHeight + " inches tall.");
-            Console.WriteLine("He's " + myWeight + " pounds heavy.");
+            double heightCM = heightInch * 2.54;
+            double weightKG = weightLB * 0.453592;
+
+            Console.WriteLine("Let's talk about " + name + ".");
+            Console.WriteLine("He's " + heightInch + " inches tall. Which is: " + heightCM + " centimeters");
+            Console.WriteLine("He's " + weightLB + " pounds heavy. Which is: " + Math.Round(weightKG,2) + " kilograms");
             Console.WriteLine("Actually, that's not too heavy.");
-            Console.WriteLine("He's got " + myEyes + " eyes and " + myHair + " hair.");
-            Console.WriteLine("His teeth are usually " + myTeeth + " depending on the coffee.");
+            Console.WriteLine("He's got " + eyes + " eyes and " + hair + " hair.");
+            Console.WriteLine("His teeth are usually " + teeth + " depending on the coffee.");
 
-            Console.WriteLine("If I add " + myAge + ", " + myHeight + ", and " + myWeight
-                               + " I get " + (myAge + myHeight + myWeight) + ".");
+            Console.WriteLine("If I add " + age + ", " + heightInch + ", and " + weightLB
+                              + " I get " + (age + heightInch + weightLB) + ".");
 
             Console.ReadKey();
         }
     }
 }
+
