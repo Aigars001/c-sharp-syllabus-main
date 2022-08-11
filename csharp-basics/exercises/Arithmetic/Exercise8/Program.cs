@@ -14,6 +14,7 @@ namespace Exercise8
             CalculatePay(10.00, 73);
             Console.ReadKey();
         }
+
         public static int CalculatePay(double pay, double hours)
         {
             double minimumWage = 8.00;
@@ -36,6 +37,7 @@ namespace Exercise8
                 }
                 Console.WriteLine("Your total salary is " + totalSalary);
             }
+
             return (int)totalSalary;
         }
     }

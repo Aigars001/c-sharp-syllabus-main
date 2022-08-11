@@ -1,91 +1,100 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculateArea
 {
     class Program
     {
         static void Main(string[] args)
+        { 
+            Play();
+        }
+
+        public static void Play()
         {
-           // Get the user's menu choice.
+            int choice = GetMenu();
+
+            if (choice == 1)
+            {
+                CalculateCircleArea();
+            }
+            else if (choice == 2)
+            {
+                CalculateRectangleArea();
+            }
+            else if (choice == 3)
+            {
+                CalculateTriangleArea();
+            }
+            else if (choice == 4)
+            {
+                Console.WriteLine("Thanks");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Enter valid number");
+                Console.ReadKey();
+                Console.Clear();
+                Play();
+            }
         }
 
         public static int GetMenu()
         {
-
-            int userChoice;
-            
-
-            // Display the menu.
             Console.WriteLine("Geometry Calculator\n");
             Console.WriteLine("1. Calculate the Area of a Circle");
             Console.WriteLine("2. Calculate the Area of a Rectangle");
             Console.WriteLine("3. Calculate the Area of a Triangle");
             Console.WriteLine("4. Quit\n");
             Console.WriteLine("Enter your choice (1-4) : ");
-            var keyboard = Console.ReadKey();
-            // get input from user
-
-            // validate input
+            int userChoice = Convert.ToInt32(Console.ReadLine());
+ 
+           /* if (userChoice > 4 || userChoice < 1)
+            {
+                Console.WriteLine("Enter valid number");
+                userChoice = Convert.ToInt32(Console.ReadLine());
+            }*/
 
             return userChoice;
         }
 
         public static void CalculateCircleArea()
         {
-            // Get input from user
             Console.WriteLine("What is the circle's radius? ");
-            //todo
+            decimal radius = Convert.ToDecimal(Console.ReadLine());
 
-
-            // Display output
             Console.WriteLine("The circle's area is "
                     + Geometry.AreaOfCircle(radius));
+
+            Console.ReadKey();
         }
 
         public static void CalculateRectangleArea()
         {
-            decimal length = 0;
-            decimal width = 0;
-
-            // Get input from user
-
-            // Get length
             Console.WriteLine("Enter length? ");
-            //todo
+            var length = Convert.ToDecimal(Console.ReadLine());
 
-            // Get width
             Console.WriteLine("Enter width? ");
-            //todo
+            var width = Convert.ToDecimal(Console.ReadLine());
 
-            // Display output
             Console.WriteLine("The rectangle's area is "
-                    + Geometry.AreaOfTriangle(length, width));
+                    + Geometry.AreaOfRectangle(length, width));
+
+            Console.ReadKey();
         }
 
         public static void CalculateTriangleArea()
         {
-            decimal ground = 0;
-            decimal height = 0;
-
-            // Get input from user
-
-            // Get the base
             Console.WriteLine("Enter length of the triangle's base? ");
-            //todo
-            //read key value
-
-            // Get the height
+            var ground = Convert.ToDecimal(Console.ReadLine());
+   
             Console.WriteLine("Enter triangle's height? ");
-            //todo
-            //read key value
-
-            // Display the triangle's area.
+            var height = Convert.ToDecimal(Console.ReadLine());
+  
             Console.WriteLine("The triangle's area is "
-                    + Geometry.AreaOfRectangle(ground, height));
+                    + Geometry.AreaOfTriangle(ground, height));
+
+            Console.ReadKey();
         }
     }
 }

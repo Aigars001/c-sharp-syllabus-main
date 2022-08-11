@@ -29,8 +29,12 @@ namespace Exercise5
             {
                 Console.WriteLine("You guessed it! What are the odds?!?");
             }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
             Console.ReadKey();
-          
         }
     }
 }
