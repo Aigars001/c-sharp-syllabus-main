@@ -24,7 +24,7 @@ namespace Exercise9
             {
                 Console.WriteLine("with BMI: " + BMI + " Your are overweight!");
             }
-            else if (BMI < 18.5)
+            else
             {
                 Console.WriteLine("with BMI: " + BMI + " Your are underweight!");
             }
