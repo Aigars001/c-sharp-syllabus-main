@@ -2,111 +2,157 @@
 {
     internal class Program
     {
+        private static string[] words =
+        {
+            "identity",
+            "lean",
+            "strain",
+            "aspect",
+            "stool"
+        };
+
+        private static int index = RandomNumber(words);
+        private static string missedChar = "";
+        private static int missedCharCount = 0;
+        private static readonly string nonHiddenGuessableWord = RandomWord(words);
+        private static char[] hiddenGuessableWordLinesArray = new string('_', nonHiddenGuessableWord.Length).ToCharArray();
+
         static void Main(string[] args)
         {
-            string[] words =
-            {
-                "identity",
-                "lean",
-                "strain",
-                "aspect",
-                "stool"
-            };
-            GetMenu(words);
+            GetMenu();
         }
 
-        static void StartGame(string[] words)
+        static void StartGame()
         {
-            bool hasWon = false;
-            string missedChar = "";
-            int missedCharCount = 0;
-            int index = RandomNumber(words);
-            var hiddenGuessableWordLinesArray = new string('_', words[index].Length).ToCharArray();
-            string nonHiddenGuessableWord = words[RandomNumber(words)];
-
             Console.WriteLine(String.Join("", hiddenGuessableWordLinesArray));
-            Console.WriteLine("\n");
-
-            while (!hasWon)
+            while (!isWinner())
             {
-                Console.WriteLine("Guess word");
-                var guessedChar = Console.ReadKey().KeyChar;
-                var foundIndexes = new List<int>();
+                DisplayGame();
+                isWinner();
+                Looser();
+                GameLogic();
+            }
+        }
 
-                if (nonHiddenGuessableWord.Contains(guessedChar))
+        private static void GameLogic()
+        {
+            var guessedChar = Char.Parse(Console.ReadLine().ToLower());
+            var foundIndexes = new List<int>();
+
+            if (nonHiddenGuessableWord.Contains(guessedChar))
+            {
+                for (int i = 0; i < nonHiddenGuessableWord.Length; i++)
                 {
-                    for (int i = 0; i < nonHiddenGuessableWord.Length; i++)
+                    if (nonHiddenGuessableWord[i] == guessedChar)
                     {
-                        if (nonHiddenGuessableWord[i] == guessedChar)
-                        {
-                            foundIndexes.Add(i);
-                        }
+                        foundIndexes.Add(i);
                     }
+                }
+            }
+            else
+            {
+                if (!missedChar.Contains(guessedChar))
+                {
+                    missedChar += guessedChar;
+                    missedCharCount++;
                 }
                 else
                 {
-                    if (!missedChar.Contains(guessedChar))
-                    {
-                        missedChar += guessedChar;
-                        missedCharCount++;
-                    }
-                }
-
-                foreach (var item in foundIndexes)
-                {
-                    hiddenGuessableWordLinesArray[item] = guessedChar;
-                }
-
-                Console.Clear();
-                Console.WriteLine("\n");
-                Console.WriteLine("Word:" + String.Join("", hiddenGuessableWordLinesArray));
-                Console.WriteLine("Misses:" + missedChar);
-
-                if (String.Join("", hiddenGuessableWordLinesArray) == nonHiddenGuessableWord)
-                {
-                    hasWon = true;
-                    Console.Clear();
-                    Console.WriteLine("word: " + nonHiddenGuessableWord + "\n");
-                    Console.WriteLine("Misses:" + missedChar + "\n");
-                    Console.WriteLine("YOU GOT IT!," + "\n" + "press any key to continue! \n" );
-                    Console.ReadKey();
-                    Console.Clear();
-                    GetMenu(words);
-                }
-                else if (missedCharCount == 5)
-                {
-                    hasWon = true;
-                    Console.Clear();
-                    Console.WriteLine("Word:" + String.Join("", hiddenGuessableWordLinesArray));
-                    Console.WriteLine("Misses:" + missedChar + "\n");
-                    Console.WriteLine("YOU Lose!" + "\n" + "press any key to continue! \n");
-                    Console.ReadKey();
-                    Console.Clear();
-                    GetMenu(words);
+                    Console.WriteLine("Character already guessed");
                 }
             }
+
+            foreach (var item in foundIndexes)
+            {
+                hiddenGuessableWordLinesArray[item] = guessedChar;
+            }
         }
-        static void GetMenu(string[] words)
+
+        private static void DisplayGame()
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine(String.Join("", hiddenGuessableWordLinesArray));
+            Console.WriteLine($"Misses: {missedChar}");
+            Console.Write("Guess: ");
+            
+        }
+
+        private static bool isWinner()
+        {
+            bool win = false;
+            if (String.Join("", hiddenGuessableWordLinesArray) == nonHiddenGuessableWord)
+            {
+                win = true;
+                Console.Clear();
+                Console.WriteLine("Word:" + String.Join("", hiddenGuessableWordLinesArray));
+                Console.WriteLine("Misses:" + missedChar + "\n");
+                Console.WriteLine("YOU GOT IT!," + "\n");
+                ExitGame();
+            }
+
+            return win;
+        }
+
+        private static void Looser()
+        {
+            if (missedCharCount == 5)
+            {
+                Console.Clear();
+                Console.WriteLine("Word:" + String.Join("", hiddenGuessableWordLinesArray));
+                Console.WriteLine("Misses:" + missedChar + "\n");
+                Console.WriteLine("YOU Lose!" + "\n" );
+                ExitGame();
+            }
+        }
+
+        private static void ExitGame()
+        {
+            Console.WriteLine("Do you want to continue? y/n");
+            var userInput = Console.ReadLine().ToLower();
+            if (userInput == "y")
+            {
+                StartGame();
+            }
+            else 
+            {
+                Console.Clear();
+                Console.WriteLine("Thanks for playing!");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+
+        }
+
+        private static void GetMenu()
         {
             Console.WriteLine("Start Game? y/n");
             var userChoice = Console.ReadLine().ToLower();
             if (userChoice == "y")
             {
-                StartGame(words);
+                StartGame();
             }
             else if (userChoice == "n")
             {
+                Console.Clear();
                 Console.WriteLine("bye");
+                Environment.Exit(0);
             }
             else
             {
                 Console.WriteLine("Unknown command");
+                Environment.Exit(0);
             }
         }
-        static int RandomNumber(string[] words)
+        private static int RandomNumber(string[] words)
         {
             Random rnd = new Random();
             return rnd.Next(0, words.Length);
+        }
+
+        private static string RandomWord(string[] words)
+        {
+            return words[index];
         }
     }
 }
