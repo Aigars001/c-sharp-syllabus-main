@@ -15,6 +15,8 @@ namespace Exercise1
                 Console.WriteLine(false);
             }
             Console.ReadKey();
+
+
         }
         static bool Is15()
         {
