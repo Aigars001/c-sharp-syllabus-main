@@ -10,31 +10,33 @@ namespace FuelConsumptionCalculator
     {
         private static void Main(string[] args)
         {
-            int startKilometers;
-            int liters;
-            
             Console.WriteLine();
 
-            Car car = new Car(0);
             Car car1 = new Car(0);
+            Car car2 = new Car(0);
             for (int i = 0; i < 3; i++)
             {
                 Console.Write("Enter first reading: ");
-                startKilometers = Convert.ToInt32(Console.ReadLine());    
+                car1.EndKilometers = Convert.ToDouble(Console.ReadLine());    
                 Console.Write("Enter liters reading: ");
-                liters = Convert.ToInt32(Console.ReadLine());
-                car.FillUp(startKilometers, liters);
+                car1.Liters = Convert.ToDouble(Console.ReadLine());
+                car1.FillUp(car1.EndKilometers, car1.Liters);
                 
                 Console.Write("Enter first reading: ");
-                startKilometers = Convert.ToInt32(Console.ReadLine());    
+                car2.EndKilometers = Convert.ToInt32(Console.ReadLine());    
                 Console.Write("Enter liters reading: ");
-                liters = Convert.ToInt32(Console.ReadLine());
-                car1.FillUp(startKilometers, liters);
+                car2.Liters = Convert.ToInt32(Console.ReadLine());
+                car2.FillUp(car2.EndKilometers, car2.Liters);
             }
 
-            Console.WriteLine("Kilometers per liter are " + car.CalculateConsumption() + " gasHog:" + car.GasHog());
-            Console.WriteLine("Car1 Kilometers per liter are " + car1.CalculateConsumption()+ " economyCar:" + car.EconomyCar());
+            Console.WriteLine("BMW kilometers per liter are " + Math.Round(car1.CalculateConsumption(),2) + HogOrEco(car1));
+            Console.WriteLine("Audi Kilometers per liter are " + Math.Round(car2.CalculateConsumption(),2) + HogOrEco(car2));
             Console.ReadKey();
+        }
+
+        private static string HogOrEco(Car carTest)
+        {
+            return carTest.GasHog() || carTest.EconomyCar() ? " gasHog:" : " economyCar:";
         }
     }
 }
