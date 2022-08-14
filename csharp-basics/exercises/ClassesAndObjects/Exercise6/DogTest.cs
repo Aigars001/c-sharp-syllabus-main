@@ -17,9 +17,9 @@ namespace Exercise6
 
             Console.WriteLine(dog8.FathersName());
             Console.WriteLine(dog3.FathersName());
-
-            Console.WriteLine($"Coco and Rocky has the same mother? {dog8.HasSameMotherAs(dog2)}");
-            Console.WriteLine($"Coco and Max has the same mother? {dog8.HasSameMotherAs(dog1)}");
+            
+            Console.WriteLine($"{dog8._name} and {dog2._name} has the same mother? {dog8.HasSameMotherAs(dog2)}");
+            Console.WriteLine($"{dog8._name} and {dog1._name} has the same mother? {dog8.HasSameMotherAs(dog1)}");
             Console.ReadKey();
         }
     }

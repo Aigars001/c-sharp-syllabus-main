@@ -8,7 +8,7 @@ namespace Exercise6
 {
     public class Dog
     {
-        private string _name;
+        public string _name;
         private string _sex;
         private string _mother;
         private string _father;
