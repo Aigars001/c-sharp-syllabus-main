@@ -28,32 +28,36 @@ namespace FlightPlanner
 
                 Console.Write("\nDeparture city: ");
                 input = Console.ReadLine();
+                
 
                 if (flightDictionary.ContainsKey(input))
                 {
                     CityList.Add(input);
-                }
-
-                Console.WriteLine("\nNext city to fly to:");
-                Console.WriteLine($"Choose from: {flightDictionary[input]}");
-
-                var nextCity = Console.ReadLine();
-                CityList.Add(nextCity);
-
-                do
-                {
                     Console.WriteLine("\nNext city to fly to:");
-                    Console.WriteLine($"Choose from: {flightDictionary[nextCity]}");
-                    nextCity = Console.ReadLine();
+                    Console.WriteLine($"Choose from: {flightDictionary[input]}");
+
+                    var nextCity = Console.ReadLine();
                     CityList.Add(nextCity);
+
+                    do
+                    {
+                        Console.WriteLine("\nNext city to fly to:");
+                        Console.WriteLine($"Choose from: {flightDictionary[nextCity]}");
+                        nextCity = Console.ReadLine();
+                        CityList.Add(nextCity);
+                    }
+                    while (nextCity != input);
+
+                    Console.WriteLine("\nYou made a roundtrip:");
+
+                    foreach (var destination in CityList)
+                    {
+                        Console.WriteLine(destination);
+                    }
                 }
-                while (nextCity != input);
-
-                Console.WriteLine("\nYou made a roundtrip:");
-
-                foreach (var destination in CityList)
+                else
                 {
-                    Console.WriteLine(destination);
+                    Console.WriteLine("Wrong input");
                 }
             }
             else if (input == "#")
