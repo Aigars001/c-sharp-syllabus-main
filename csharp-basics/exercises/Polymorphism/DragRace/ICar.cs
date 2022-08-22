@@ -7,10 +7,10 @@ namespace DragRace
     public interface ICar
     {
         int Speed { get; }
-        void SpeedUp();
-        void SlowDown();
 
-        string GetName { get; }
+        void SpeedUp();
+
+        void SlowDown();
 
         string ShowCurrentSpeed { get; }
 

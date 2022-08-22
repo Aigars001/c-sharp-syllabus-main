@@ -10,7 +10,7 @@ namespace DragRace
         public int Speed
         { get; protected set; }
 
-        private string _name { get; }
+        private string _name;
 
         public Random rnd;
 
@@ -18,29 +18,30 @@ namespace DragRace
         {
             rnd = new Random();
             Speed = 0;
-            ShowCurrentSpeed = Speed.ToString();
-            GetName = _name;
+
         }
 
         public virtual void SpeedUp()
         {
-            Speed += rnd.Next(5, 30);
+            Speed += rnd.Next(10, 40);
         }
 
         public void SlowDown()
         {
-            Speed -= rnd.Next(5, 30);
+            Speed -= rnd.Next(10, 40);
         }
 
         public string ShowCurrentSpeed
-        { get;  }
+        {
+            get => Speed.ToString();
+
+        }
 
         public virtual void StartEngine()
         {
             Console.WriteLine("Rrrrrrr.....");
         }
-        public string GetName
-        { get; }
+        
 
     }
 }

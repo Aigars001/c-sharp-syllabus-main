@@ -6,6 +6,5 @@ namespace DragRace
 {
     public class VAZ : Vehicle
     {
-        private string _name = "VAZ";
     }
 }

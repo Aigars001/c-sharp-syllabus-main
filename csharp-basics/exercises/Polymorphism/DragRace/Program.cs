@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DragRace
 {
@@ -19,20 +20,55 @@ namespace DragRace
 
         private static void Main(string[] args)
         {
-            var cars = new List<Object>();
+            var audi = new Audi();
+            var vaz = new VAZ();
+            var toyota = new Toyota();
+            var bmw = new Bmw();
+            var tesla = new Tesla();
+            var lexus = new Lexus();
 
-            cars.Add(new Audi());
-            cars.Add(new VAZ());
-            cars.Add(new Toyota());
-            cars.Add(new Bmw());
-            cars.Add(new Tesla());
-            cars.Add(new Lexus());
+            var cars = new List<ICar>
+            {
+                audi, toyota, bmw, tesla, lexus, vaz
+            };
+
+            for (int i = 0; i < 10; i++)
+            {
+                foreach (var car in cars)
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            car.StartEngine();
+                            continue;
+                        case 3 when car is IBoost:
+                            ((IBoost)car).UseNitrousOxideEngine();
+                            continue;
+                        default:
+                            car.SpeedUp();
+                            break;
+                    }
+                }
+            }
 
             foreach (var car in cars)
             {
-                Console.WriteLine(car);
+                Console.WriteLine($"{car.GetType().Name} : {car.ShowCurrentSpeed}");
             }
 
+            var speed = 0;
+            var name = "";
+
+            foreach (var car in cars)
+            {
+                if (Int32.Parse(car.ShowCurrentSpeed) > speed)
+                {
+                    speed = Int32.Parse(car.ShowCurrentSpeed);
+                    name = car.GetType().Name;
+                }
+            }
+
+            Console.WriteLine($"{name} with speed of {speed}km/h is the fastest car!");
             Console.ReadKey();
         }
     }

@@ -6,11 +6,9 @@ namespace DragRace
 {
     public class Toyota : Vehicle, IBoost
     {
-        private string _name = "Toyota";
-
         public void UseNitrousOxideEngine()
         {
-            Speed += 10;
+            Speed += 30;
         }
     }
 }
