@@ -6,27 +6,28 @@ namespace FuelConsumptionCalculator
     {
         private double _startKilometers;
         private double _endKilometers;
-        private double _liters;
+        private double _litres;
 
         public Car(double startOdo)
         {
             _startKilometers = startOdo;
         }
-
+        
         public double EndKilometers
         {
             get { return _endKilometers; }
             set { _endKilometers = value; }
         }
-        public double Liters
+
+        public double Litres
         {
-            get { return _liters; }
-            set { _liters = value; }
+            get { return _litres; }
+            set { _litres = value; }
         }
 
         public double CalculateConsumption()
         {
-            return (_endKilometers - _startKilometers) / _liters;
+            return (_endKilometers - _startKilometers) / _litres;
         }
 
         private double ConsumptionPer100Km()
@@ -44,10 +45,10 @@ namespace FuelConsumptionCalculator
             return ConsumptionPer100Km() < 5;
         }
 
-        public void FillUp(double mileage, double liters)
+        public void FillUp(double mileage, double litres)
         {
             _endKilometers = mileage;
-            _liters += liters;
+            _litres += litres;
         }
     }
 }

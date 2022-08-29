@@ -19,14 +19,14 @@ namespace FuelConsumptionCalculator
                 Console.Write("Enter first reading: ");
                 car1.EndKilometers = Convert.ToDouble(Console.ReadLine());    
                 Console.Write("Enter liters reading: ");
-                car1.Liters = Convert.ToDouble(Console.ReadLine());
-                car1.FillUp(car1.EndKilometers, car1.Liters);
+                car1.Litres = Convert.ToDouble(Console.ReadLine());
+                car1.FillUp(car1.EndKilometers, car1.Litres);
                 
                 Console.Write("Enter first reading: ");
                 car2.EndKilometers = Convert.ToInt32(Console.ReadLine());    
                 Console.Write("Enter liters reading: ");
-                car2.Liters = Convert.ToInt32(Console.ReadLine());
-                car2.FillUp(car2.EndKilometers, car2.Liters);
+                car2.Litres = Convert.ToInt32(Console.ReadLine());
+                car2.FillUp(car2.EndKilometers, car2.Litres);
             }
 
             Console.WriteLine("BMW kilometers per liter are " + Math.Round(car1.CalculateConsumption(),2) + HogOrEco(car1));
