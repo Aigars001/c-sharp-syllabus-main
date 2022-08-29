@@ -8,9 +8,9 @@ namespace BankAccount
 {
     class Account
     {
-        public string _userAccountName;
-        public decimal _userAccountBalance;
-        public string _userAccountDetails;
+        private string _userAccountName;
+        private decimal _userAccountBalance;
+        private string _userAccountDetails;
 
         public Account(string userAccountName, decimal userAccountBalance)
         {
