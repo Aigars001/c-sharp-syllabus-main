@@ -12,13 +12,15 @@ namespace Exercise6
         private string _sex;
         private string _mother;
         private string _father;
+
         public Dog(string name, string sex, string mother, string father)
         {
             _name = name;
             _sex = sex;
             _mother = mother;
             _father = father;
-        }       
+        }   
+        
         public Dog(string name, string sex)
         {
             _name = name;
