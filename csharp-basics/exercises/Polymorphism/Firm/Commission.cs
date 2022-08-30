@@ -33,7 +33,5 @@ namespace Firm
             result += "\nSales: " + TotalSales;
             return result;
         }
-
-        
     }
 }
