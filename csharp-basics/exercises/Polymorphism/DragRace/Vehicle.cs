@@ -18,7 +18,6 @@ namespace DragRace
         {
             rnd = new Random();
             Speed = 0;
-
         }
 
         public virtual void SpeedUp()
@@ -34,14 +33,11 @@ namespace DragRace
         public string ShowCurrentSpeed
         {
             get => Speed.ToString();
-
         }
 
         public virtual void StartEngine()
         {
             Console.WriteLine("Rrrrrrr.....");
         }
-        
-
     }
 }
