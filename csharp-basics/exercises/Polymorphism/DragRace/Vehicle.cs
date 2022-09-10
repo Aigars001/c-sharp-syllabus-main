@@ -27,7 +27,18 @@ namespace DragRace
 
         public void SlowDown()
         {
-            Speed -= rnd.Next(10, 40);
+            if(Speed > 0)
+            {
+                Speed -= rnd.Next(10, 40);
+                if(Speed < 0)
+                {
+                    Speed = 0;
+                }
+            }
+            else
+            {
+                Speed = 0;
+            }
         }
 
         public string ShowCurrentSpeed
