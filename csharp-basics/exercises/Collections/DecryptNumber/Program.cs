@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DecryptNumber
 {
@@ -15,7 +16,15 @@ namespace DecryptNumber
                 "$*^&@!",
                 "!)(^&(#@",
                 "!)(#&%(*@#%"
+
             };
+
+            var chars = new char[] { ')', '!', '@', '#', '$', '%', '^', '&', '*', '(' };
+
+            foreach (var number in cryptedNumbers)
+            {
+                Console.WriteLine(string.Join("", number.Select(c => Array.IndexOf(chars, c))));
+            }
         }
     }
 }

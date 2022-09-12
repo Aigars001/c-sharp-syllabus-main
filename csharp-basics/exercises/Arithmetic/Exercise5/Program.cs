@@ -1,4 +1,7 @@
-﻿namespace Exercise5
+﻿using System;
+using System.ComponentModel.Design;
+
+namespace Exercise5
 {
     internal class Program
     {

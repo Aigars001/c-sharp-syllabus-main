@@ -1,10 +1,9 @@
-﻿using System;
+﻿    using System;
 
 namespace Exercise1
 {
     class Program
     {
-        //TODO: Write a C# program to sort a numeric array and a string array.
         private static void Main(string[] args)
         {
             int[] myArray1 = 
@@ -25,17 +24,18 @@ namespace Exercise1
             };
             
             
-            //fixme
-            Console.WriteLine("Original numeric array : " + string.Join("," , myArray1));
-            //........... //Sort array
             
+            Console.WriteLine("Original numeric array : " + string.Join("," , myArray1));
+           
+
+            Array.Sort(myArray1);
             Console.WriteLine("Sorted numeric array : " + string.Join("," , myArray1));
     
             Console.WriteLine("Original string array : " + string.Join("," , myArray2));
-            //......... //Sort array
             
+            Array.Sort(myArray2);
             Console.WriteLine("Sorted string array : " + string.Join("," , myArray2));
-            //*/
+            
             Console.ReadKey();
         }
     }
