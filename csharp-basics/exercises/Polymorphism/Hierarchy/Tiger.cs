@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Hierarchy.Exceptions;
 
 namespace Hierarchy
 {
@@ -20,8 +19,7 @@ namespace Hierarchy
             }
             else
             {
-                Console.WriteLine($"{food.GetFoodType()} {food.FoodQuantity}");
-                Console.WriteLine($"Tigers are not eating that type of food!");
+                throw new AnimalDoesNotEatThisFoodException();
             }
         }
 
