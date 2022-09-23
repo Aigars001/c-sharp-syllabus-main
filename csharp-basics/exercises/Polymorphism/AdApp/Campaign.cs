@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,7 +25,7 @@ namespace AdApp
 
         public override string ToString()
         {
-            return "Advert Campaign" + campaign + "\nTotal Cost = "+ GetCost();
+            return "Advert Campaign" + String.Join("\n",campaign) + "\nTotal Cost = "+ GetCost();
         }
     }
 }

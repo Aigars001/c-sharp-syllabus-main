@@ -10,19 +10,38 @@ namespace ListExercise11
     {
         static void Main(string[] args)
         {
-            //TODO: Create an List with string elements
+            var list = new List<string>();
 
-            //TODO: Add 10 values to list
+            list.Add("Brown");
+            list.Add("Blue");
+            list.Add("Green");
+            list.Add("Yellow");
+            list.Add("White");
+            list.Add("Purple");
+            list.Add("Silver");
+            list.Add("Gold");
+            list.Add("Pink");
+            list.Add("Brown");
 
-            //TODO: Add new value at 5th position
+            list.Insert(4, "Something");
+            Console.WriteLine("5th element changed: " + String.Join(",", list));
 
-            //TODO: Change value at last position (Calculate last position programmatically)
+            list[list.Count - 1] = "Changed";
+            Console.WriteLine("\nlast element changed: " + String.Join(",", list));
 
-            //TODO: Sort your list in alphabetical order
+            list.Sort();
+            Console.WriteLine("\nSorted list: " + String.Join(",", list));
+            Console.WriteLine();
 
-            //TODO: Check if your list contains "Foobar" element
+            Console.WriteLine(list.Contains("Foobar") ? "Contains" : "Doesnt contain");
+            Console.WriteLine();
 
-            //TODO: Print each element of list using loop
+            foreach (var element in list)
+            {
+                Console.WriteLine(element);
+            }
+
+            Console.ReadKey();
         }
     }
 }
