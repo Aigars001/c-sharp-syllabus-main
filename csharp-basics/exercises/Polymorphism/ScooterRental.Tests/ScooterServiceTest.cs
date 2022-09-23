@@ -39,10 +39,9 @@ namespace ScooterRental.Test
         }
 
         [TestMethod]
-        public void AddScooter_AddScooterWithNeagtiveOrZeroPrice_ThrowInvalidPriceException()
+        public void AddScooter_AddScooterWithNegtiveOrZeroPrice_ThrowInvalidPriceException()
         {
             //Act
-            _scooterService.AddScooter("1", 0.2m);
             Action act = () => _scooterService.AddScooter("1", -0.2m);
 
             //Assert
@@ -86,7 +85,6 @@ namespace ScooterRental.Test
         public void RemoveScooter_NullOrEmptyIdGiven_ThrowInvalideIdException()
         {
             //Act
-            _scooterService.AddScooter("1", 0.2m);
             Action act = () => _scooterService.AddScooter("", 0.2m);
 
             //Assert
@@ -96,10 +94,6 @@ namespace ScooterRental.Test
         [TestMethod]
         public void GetScooters_ScooterListIsEmpty_ThrowScooterListIsEmptyExeption()
         {
-            //Act
-            _scooterService.AddScooter("1", 0.2m);
-            _scooterService.RemoveScooter("1");
-
             //Assert
             Action act = () => _scooterService.GetScooters().Should().HaveCount(0);
             act.Should().Throw<ScooterListIsEmptyExeption>().WithMessage("No scooters available"); 
