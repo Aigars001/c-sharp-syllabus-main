@@ -1,6 +1,9 @@
-﻿namespace ScooterRental
+﻿using ScooterRental.Interfaces;
+using ScooterRental.Exceptions;
+
+namespace ScooterRental
 {
-    public class RentPriceCalcualtor
+    public class RentPriceCalcualtor : IRentPriceCalculator
     {
         private static decimal ReturnDailyLimitOrPricePerDay(decimal pricePerDay, decimal limit)
         {
@@ -14,7 +17,7 @@
             }
         }
 
-        public static decimal CalculateIncomeForRentedScooter(DateTime startRent, DateTime? endRent, decimal pricePerMinute)
+        public decimal CalculateIncomeForRentedScooter(DateTime startRent, DateTime? endRent, decimal pricePerMinute)
         {
             var maxPrice = 20m;
             var price = 0m;
@@ -51,6 +54,56 @@
             }
 
             return Math.Round(price, 2);
+        }
+
+        public decimal CalculateIncomeForCompany(List<RentedScooter> rentedScooters, bool includeNotCompleteRentals)
+        {
+            decimal result = 0;
+
+            if(includeNotCompleteRentals == false)
+            {
+                result = rentedScooters.Where(s => s.EndTime.HasValue).Sum(s => CalculateIncomeForRentedScooter(s.StartTime, s.EndTime, s.PricePerMinute));
+            }
+            else
+            {
+                foreach(var rented in rentedScooters)
+                {
+                    if(!rented.EndTime.HasValue)
+                    {
+                        rented.EndTime = DateTime.UtcNow;
+                    }
+                    result += CalculateIncomeForRentedScooter(rented.StartTime, rented.EndTime, rented.PricePerMinute);
+                }
+            }
+            return Math.Round(result,2);
+        }
+
+        public decimal CalculateAnnualIncome(List<RentedScooter> rentedScooters, int? year, bool includeNotCompleteRentals)
+        {
+            var result = 0m;
+
+            if(year == null || year == ' ')
+            {
+                if (rentedScooters.Count < 1)
+                {
+                    throw new NoScootersRentedException();
+                }
+                result = CalculateIncomeForCompany(rentedScooters, includeNotCompleteRentals);
+            }
+
+            else
+            {
+                var rentalsFilteredByYear = rentedScooters.FindAll(s => s.StartTime.Year == year);
+                
+                if(rentalsFilteredByYear.Count < 1)
+                {
+                    throw new NoScootersRentedException();
+                }
+
+                result = CalculateIncomeForCompany(rentalsFilteredByYear, includeNotCompleteRentals);
+            }
+
+            return Math.Round(result, 2);
         }
     }
 }

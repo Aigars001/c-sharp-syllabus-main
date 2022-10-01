@@ -1,5 +1,6 @@
 ﻿using ScooterRental.Validators;
 using ScooterRental.Exceptions;
+using ScooterRental.Interfaces;
 
 namespace ScooterRental
 {
@@ -11,11 +12,14 @@ namespace ScooterRental
 
         private IScooterService _scooterService;
 
-        public RentalCompany(string name, List<RentedScooter> rentedScooterList, IScooterService scooterService)
+        private readonly IRentPriceCalculator _calculateRent;
+
+        public RentalCompany(string name, List<RentedScooter> rentedScooterList, IScooterService scooterService, IRentPriceCalculator calculateRent)
         {
             Name = name;
             _rentedScooterList = rentedScooterList;
             _scooterService = scooterService;
+            _calculateRent = calculateRent;
         }
 
         public void StartRent(string id)
@@ -53,21 +57,14 @@ namespace ScooterRental
             rentedScooter.EndTime = DateTime.UtcNow;
             scooter.IsRented = false;
 
-            var price = RentPriceCalcualtor.CalculateIncomeForRentedScooter(rentedScooter.StartTime, rentedScooter.EndTime, rentedScooter.PricePerMinute);  
-
+            //var price = RentPriceCalcualtor.CalculateIncomeForRentedScooter(rentedScooter.StartTime, rentedScooter.EndTime, rentedScooter.PricePerMinute);  
+            var price = _calculateRent.CalculateIncomeForRentedScooter(rentedScooter.StartTime, rentedScooter.EndTime, rentedScooter.PricePerMinute);
             return price;
         }
 
         public decimal CalculateIncome(int? year, bool includeNotCompletedRentals)
         {
-            if (includeNotCompletedRentals == true)
-            {
-                return AnnualIncomeCalculator.CalculateAnnualIncome(_rentedScooterList, 2022, true);
-            }
-            else
-            {
-                return AnnualIncomeCalculator.CalculateAnnualIncome(_rentedScooterList, 2022, false);
-            }
+            return _calculateRent.CalculateAnnualIncome(_rentedScooterList, year, includeNotCompletedRentals);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ScooterRental.Exceptions;
+using ScooterRental.Interfaces;
 
 namespace ScooterRental.Tests
 {
@@ -10,6 +11,7 @@ namespace ScooterRental.Tests
 
         private IScooterService _scooterService;
         private IRentalCompany _company;
+        private IRentPriceCalculator _priceCalculator;
         private List<Scooter> _inventory;
         private List<RentedScooter> _rentedScooters;
 
@@ -19,7 +21,8 @@ namespace ScooterRental.Tests
             _inventory = new List<Scooter>();
             _scooterService = new ScooterService(_inventory);
             _rentedScooters = new List<RentedScooter>();
-            _company = new RentalCompany("CompanyName", _rentedScooters, _scooterService);
+            _priceCalculator = new RentPriceCalcualtor();
+            _company = new RentalCompany("CompanyName", _rentedScooters, _scooterService, _priceCalculator);
             _scooterService.AddScooter("1", 0.2m);
             _scooterService.AddScooter("2", 0.2m);
             _scooterService.AddScooter("3", 0.2m);
