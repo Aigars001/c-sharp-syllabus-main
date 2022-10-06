@@ -52,7 +52,6 @@ namespace ScooterRental.Test
         public void AddScooter_AddScooterWithNullOrEmptyId_ThrowInvalideIdException()
         {
             //Act
-            _scooterService.AddScooter("1", 0.2m);
             Action act = () => _scooterService.AddScooter("", 0.2m);
 
             //Assert
@@ -133,8 +132,6 @@ namespace ScooterRental.Test
         [TestMethod]
         public void GetScootersById_IdDoesntExist_ThrowsScooterDoesntExistException()
         {
-            //Arrange
-            _scooterService.AddScooter("1", 0.2m);
             //Act
             Action act = () => _scooterService.GetScooterById("2");
 

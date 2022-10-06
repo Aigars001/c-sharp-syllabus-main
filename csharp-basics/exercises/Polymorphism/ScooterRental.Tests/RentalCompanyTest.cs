@@ -132,7 +132,7 @@ namespace ScooterRental.Tests
         {
             //Arange
             var scooter = _scooterService.GetScooterById("1");
-            var rentedScooter = new RentedScooter("1", DateTime.UtcNow.AddMinutes(-1440), 0.2m);
+            var rentedScooter = new RentedScooter("1", DateTime.UtcNow.AddDays(-1), 0.2m);
             _rentedScooters.Add(rentedScooter);
 
             //Act
@@ -149,7 +149,7 @@ namespace ScooterRental.Tests
         {
             //Arange
             var scooter = _scooterService.GetScooterById("1");
-            var rentedScooter = new RentedScooter("1", DateTime.UtcNow.AddMinutes(-21600), 0.2m);
+            var rentedScooter = new RentedScooter("1", DateTime.UtcNow.AddDays(-15), 0.2m);
             _rentedScooters.Add(rentedScooter);
 
             //Act
@@ -171,7 +171,7 @@ namespace ScooterRental.Tests
             scooter1.IsRented = true;
             scooter2.IsRented = true;
 
-            var rentedScooter1 = new RentedScooter("1", DateTime.UtcNow.AddMinutes(-21600), 0.2m);
+            var rentedScooter1 = new RentedScooter("1", DateTime.UtcNow.AddDays(-15), 0.2m);
             var rentedScooter2 = new RentedScooter("2", DateTime.UtcNow.AddMinutes(-10), 0.2m);
 
             

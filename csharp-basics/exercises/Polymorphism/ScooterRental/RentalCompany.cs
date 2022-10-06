@@ -57,8 +57,8 @@ namespace ScooterRental
             rentedScooter.EndTime = DateTime.UtcNow;
             scooter.IsRented = false;
 
-            //var price = RentPriceCalcualtor.CalculateIncomeForRentedScooter(rentedScooter.StartTime, rentedScooter.EndTime, rentedScooter.PricePerMinute);  
             var price = _calculateRent.CalculateIncomeForRentedScooter(rentedScooter.StartTime, rentedScooter.EndTime, rentedScooter.PricePerMinute);
+            
             return price;
         }
 
